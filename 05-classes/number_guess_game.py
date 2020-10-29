@@ -71,6 +71,7 @@ class Player():
 
     def make_a_guess(self):
         guess = get_user_input(GUESS_PROMPT)
+        self.add_guess(guess)
         return guess
 
 
@@ -96,8 +97,7 @@ def play_game():
         player.guess_count = 1
 
         # Obtain their initial guess
-        guess = get_user_input(GUESS_PROMPT)
-        player.add_guess(guess)
+        guess = player.make_a_guess()
         while number_to_guess != guess:
             print('Sorry wrong number')
 
@@ -112,8 +112,7 @@ def play_game():
                 print('Your guess was higher than the number')
 
             # Obtain their next guess and increment number of attempts
-            guess = get_user_input('Please guess again: ')
-            player.add_guess(guess)
+            guess = player.make_a_guess()
             player.increment_count()
 
         # Check to see if they did guess the correct number
