@@ -21,7 +21,7 @@ def welcome_message():
 def display_instructions():
     response = get_user_yes_or_no('Do you want to see the instructions?: ')
     if response == 'y':
-        print("You have to guess a number between 0 and", MAX_VALUE)
+        print("You have to guess a number between " + MIN_VALUE + " and", MAX_VALUE)
         print("You can play as many times as you like")
 
 def game_over_message():
