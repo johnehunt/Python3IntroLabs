@@ -2,6 +2,7 @@ import random
 
 MIN_VALUE = 1
 MAX_VALUE = 10
+MAX_NUMBER_OF_GUESSES = 4
 
 
 def welcome_message():
@@ -15,14 +16,13 @@ def game_over_message():
 def get_user_input(prompt):
     invalid_input = True
     while invalid_input:
-        print(prompt, end='')
-        user_input = input()
+        user_input = input(prompt)
         if not user_input.isdigit():
             print('Input must be a positive number')
         else:
             user_input_int = int(user_input)
-            if (user_input_int < MIN_VALUE or user_input_int > MAX_VALUE):
-                print('Input must be a number in the range 1 to 10')
+            if user_input_int < MIN_VALUE or user_input_int > MAX_VALUE:
+                print('Please guess a number between ' + MIN_VALUE + ' and ' + MAX_VALUE + ': ')
             else:
                 invalid_input = False
     return user_input_int
@@ -54,13 +54,13 @@ def play_game():
         history = []
 
         # Initialise the number to be guessed
-        number_to_guess = random.randint(1, 10)
+        number_to_guess = random.randint(MIN_VALUE, MAX_VALUE)
 
         # Initialise the number of tries the player has made
         count_number_of_tries = 1
 
         # Obtain their initial guess
-        guess = get_user_input('Please guess a number between 1 and 10: ')
+        guess = get_user_input('Please guess a number between ' + MIN_VALUE + ' and ' + MAX_VALUE + ': ')
         history.append(guess)
         while number_to_guess != guess:
             print('Sorry wrong number')
@@ -68,7 +68,7 @@ def play_game():
             # Check to see they have not exceeded the maximum
             # number of attempts if so break out of loop otherwise
             # give the user come feedback
-            if count_number_of_tries == 4:
+            if count_number_of_tries == MAX_NUMBER_OF_GUESSES:
                 break
             elif guess < number_to_guess:
                 print('Your guess was lower than the number')
