@@ -1,5 +1,9 @@
 import random
 
+MIN_VALUE = 1
+MAX_VALUE = 10
+MAX_NUMBER_OF_GUESSES = 4
+
 keep_playing = True
 
 print('Welcome to the number guess game')
@@ -10,13 +14,13 @@ while keep_playing:
     history = []
 
     # Initialise the number to be guessed
-    number_to_guess = random.randint(1,10)
+    number_to_guess = random.randint(MIN_VALUE, MAX_VALUE)
 
     # Initialise the number of tries the player has made
     count_number_of_tries = 1
 
     # Obtain their initial guess
-    guess = int(input('Please guess a number between 1 and 10: '))
+    guess = int(input('Please guess a number between ' + MIN_VALUE + ' and ' + MAX_VALUE + ': '))
     history.append(guess)
     while number_to_guess != guess:
         print('Sorry wrong number')
@@ -24,7 +28,7 @@ while keep_playing:
         # Check to see they have not exceeded the maximum
         # number of attempts if so break out of loop otherwise
         # give the user come feedback
-        if count_number_of_tries == 4:
+        if count_number_of_tries == MAX_NUMBER_OF_GUESSES:
             break
         elif guess < number_to_guess:
             print('Your guess was lower than the number')
