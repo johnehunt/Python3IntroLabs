@@ -5,10 +5,24 @@ MAX_VALUE = 10
 MAX_NUMBER_OF_GUESSES = 4
 GUESS_PROMPT = 'Please guess a number between ' + str(MIN_VALUE) + ' and ' + str(MAX_VALUE) + ': '
 
+def get_user_yes_or_no(prompt):
+    """ get input from the user and check that it is y or n"""
+    invalid_input = True
+    while invalid_input:
+        user_input = input(prompt).lower()
+        if user_input == 'y' or user_input == 'n':
+            return user_input.lower()
+        else:
+            print('Input Error - Input must be "y" or "n"')
 
 def welcome_message():
     print('Welcome to the number guess game')
 
+def display_instructions():
+    response = get_user_yes_or_no('Do you want to see the instructions?: ')
+    if response == 'y':
+        print("You have to guess a number between 0 and", MAX_VALUE)
+        print("You can play as many times as you like")
 
 def game_over_message():
     print('Game Over')
@@ -27,17 +41,6 @@ def get_user_input(prompt):
             else:
                 invalid_input = False
     return user_input_int
-
-
-def get_user_yes_or_no(prompt):
-    """ get input from the user and check that it is y or n"""
-    invalid_input = True
-    while invalid_input:
-        user_input = input(prompt).lower()
-        if user_input == 'y' or user_input == 'n':
-            return user_input.lower()
-        else:
-            print('Input Error - Input must be "y" or "n"')
 
 
 def print_history(history):
@@ -101,5 +104,6 @@ def play_game():
 # Start the program
 
 welcome_message()
+display_instructions()
 play_game()
 game_over_message()
