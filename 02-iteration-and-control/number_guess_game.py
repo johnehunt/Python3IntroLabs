@@ -3,6 +3,8 @@ import random
 MIN_VALUE = 1
 MAX_VALUE = 10
 MAX_NUMBER_OF_GUESSES = 4
+GUESS_PROMPT = 'Please guess a number between ' + str(MIN_VALUE) + ' and ' + str(MAX_VALUE) + ': '
+
 
 print('Welcome to the number guess game')
 
@@ -13,7 +15,7 @@ number_to_guess = random.randint(MIN_VALUE, MAX_VALUE)
 count_number_of_tries = 1
 
 # Obtain their initial guess
-guess = int(input('Please guess a number between ' + MIN_VALUE + ' and ' + MAX_VALUE + ': '))
+guess = int(input(GUESS_PROMPT))
 while number_to_guess != guess:
     print('Sorry wrong number')
 

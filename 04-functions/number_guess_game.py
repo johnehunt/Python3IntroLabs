@@ -3,6 +3,7 @@ import random
 MIN_VALUE = 1
 MAX_VALUE = 10
 MAX_NUMBER_OF_GUESSES = 4
+GUESS_PROMPT = 'Please guess a number between ' + str(MIN_VALUE) + ' and ' + str(MAX_VALUE) + ': '
 
 
 def welcome_message():
@@ -22,7 +23,7 @@ def get_user_input(prompt):
         else:
             user_input_int = int(user_input)
             if user_input_int < MIN_VALUE or user_input_int > MAX_VALUE:
-                print('Please guess a number between ' + MIN_VALUE + ' and ' + MAX_VALUE + ': ')
+                print(GUESS_PROMPT)
             else:
                 invalid_input = False
     return user_input_int
@@ -60,7 +61,7 @@ def play_game():
         count_number_of_tries = 1
 
         # Obtain their initial guess
-        guess = get_user_input('Please guess a number between ' + MIN_VALUE + ' and ' + MAX_VALUE + ': ')
+        guess = get_user_input(GUESS_PROMPT)
         history.append(guess)
         while number_to_guess != guess:
             print('Sorry wrong number')
