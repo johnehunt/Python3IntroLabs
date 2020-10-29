@@ -131,9 +131,9 @@ def play_game():
             if player.guess_count == MAX_NUMBER_OF_GUESSES:
                 break
             elif guess < number_to_guess:
-                print('Your guess was lower than the number')
+                print(player.name, 'your guess was lower than the number')
             else:
-                print('Your guess was higher than the number')
+                print(player.name, 'your guess was higher than the number')
 
             # Obtain their next guess and increment number of attempts
             guess = player.make_a_guess()
@@ -144,14 +144,14 @@ def play_game():
             print('Well done', player.name, 'won!')
             print('You took', player.guess_count, 'goes to complete the game')
         else:
-            print("Sorry - you loose")
+            print("Sorry -', player.name, 'you loose")
             print('The number you needed to guess was',
                   number_to_guess)
 
-        print('Your guesses were:')
+        print(player.name, 'your guesses were:')
         player.print_history()
 
-        play_again = get_user_yes_or_no('Do you want to play? (y/n) ')
+        play_again = get_user_yes_or_no('Do you want ' + player.name + ' to play? (y/n) ')
         if play_again == 'n':
             keep_playing = False
 
