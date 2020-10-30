@@ -1,7 +1,8 @@
 # Module used to define player classess
 import random
-from utils import get_user_input
+
 from constants import MIN_VALUE, MAX_VALUE, GUESS_PROMPT
+from utils import get_user_input
 
 print('Loading Player Information')
 
@@ -17,6 +18,7 @@ class Player:
     def __str__(self):
         return 'Player ' + self.name + ' guesses ' + str(self.guess_count) + ', history ' + str(self.history)
 
+    # Defining properties for the Player
     @property
     def history(self):
         return self.__history
@@ -29,6 +31,7 @@ class Player:
     def guess_count(self):
         return self.__guess_count
 
+    # Methods supporting the read only nature of the properties
     def increment_count(self):
         self.__guess_count = self.__guess_count + 1
 
@@ -38,6 +41,7 @@ class Player:
     def reset_guess_count(self):
         self.__guess_count = 0
 
+    # Other player related methods
     def add_guess(self, guess):
         self.__history.append(guess)
 
