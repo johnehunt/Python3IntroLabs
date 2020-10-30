@@ -32,7 +32,7 @@ def get_player():
     if computer_plays == 'y':
         player = ComputerPlayer(MAX_VALUE)
     else:
-        name = input('Please enter your name>: ')
+        name = input('Please enter your name: ')
         print('', name, '')
         if name == '':
             raise NumberGuessGameException('Invalid Name')
@@ -48,13 +48,13 @@ def play_game():
     while keep_playing:
 
         # Initialise the players history of guesses
-        player.history = []
+        player.reset_history()
 
         # Initialise the number to be guessed
         number_to_guess = random.randint(MIN_VALUE, MAX_VALUE)
 
         # Initialise the number of tries the player has made
-        player.guess_count = 1
+        player.reset_guess_count()
 
         # Obtain their initial guess
         guess = player.make_a_guess()
