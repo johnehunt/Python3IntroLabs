@@ -72,6 +72,7 @@ class Player:
     def make_a_guess(self):
         guess = get_user_input(GUESS_PROMPT)
         self.add_guess(guess)
+        self.increment_count()
         return guess
 
 
@@ -86,6 +87,7 @@ class ComputerPlayer(Player):
     def make_a_guess(self):
         guess = self.random_number_generator.randint(0, self.range)
         self.add_guess(guess)
+        self.increment_count()
         return guess
 
     def __str__(self):
@@ -121,7 +123,6 @@ def play_game():
 
         # Obtain their initial guess
         guess = player.make_a_guess()
-        player.increment_count()
         while number_to_guess != guess:
             print('Sorry wrong number')
 
@@ -137,7 +138,6 @@ def play_game():
 
             # Obtain their next guess and increment number of attempts
             guess = player.make_a_guess()
-            player.increment_count()
 
         # Check to see if they did guess the correct number
         if number_to_guess == guess:

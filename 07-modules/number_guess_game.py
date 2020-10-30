@@ -48,7 +48,6 @@ def play_game():
 
         # Obtain their initial guess
         guess = player.make_a_guess()
-        player.increment_count()
         while number_to_guess != guess:
             print('Sorry wrong number')
 
@@ -64,7 +63,6 @@ def play_game():
 
             # Obtain their next guess and increment number of attempts
             guess = player.make_a_guess()
-            player.increment_count()
 
         # Check to see if they did guess the correct number
         if number_to_guess == guess:
