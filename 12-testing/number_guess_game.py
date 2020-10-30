@@ -1,12 +1,14 @@
 import random
-from constants import MIN_VALUE, MAX_VALUE, MAX_NUMBER_OF_GUESSES, GUESS_PROMPT
-from utils import get_user_yes_or_no
-from players import Player, ComputerPlayer
 import traceback
+
+from constants import MIN_VALUE, MAX_VALUE, MAX_NUMBER_OF_GUESSES
+from players import Player, ComputerPlayer
+from utils import get_user_yes_or_no
 
 
 class NumberGuessGameException(Exception):
     """ Class representing errors in the number guess game"""
+
     def __init__(self, msg):
         super().__init__(msg)
 
@@ -105,4 +107,3 @@ if __name__ == "__main__":
         traceback.print_exc()
 
 game_over_message()
-
