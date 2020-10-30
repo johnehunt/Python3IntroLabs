@@ -1,14 +1,16 @@
 import random
 from os import path
-from constants import MIN_VALUE, MAX_VALUE, MAX_NUMBER_OF_GUESSES, HIGHSCORE_FILENAME
+from constants import MIN_VALUE, MAX_VALUE, MAX_NUMBER_OF_GUESSES, LOWSCORE_FILENAME
 from utils import get_user_yes_or_no
 from players import Player, ComputerPlayer
 import traceback
 
-highscore = 9999
+best_guess_count = 9999
+
 
 class NumberGuessGameException(Exception):
     """ Class representing errors in the number guess game"""
+
     def __init__(self, msg):
         super().__init__(msg)
 
@@ -27,19 +29,22 @@ def display_instructions():
 def game_over_message():
     print('Game Over')
 
+
 def load_highscore():
-    global highscore
-    if path.isfile(HIGHSCORE_FILENAME):
-        with open(HIGHSCORE_FILENAME, 'r') as file:
+    global best_guess_count
+    if path.isfile(LOWSCORE_FILENAME):
+        with open(LOWSCORE_FILENAME, 'r') as file:
             inputStr = file.readline()
-            highscore = int(inputStr)
-    print('The current highscore is', highscore)
+            best_guess_count = int(inputStr)
+    print('The current best guess count is', best_guess_count)
+
 
 def check_highscore_update(player):
-    if player.guess_count < highscore:
-        print(player.name, 'you have the current highscore')
-        with open(HIGHSCORE_FILENAME, 'w') as file:
+    if player.guess_count < best_guess_count:
+        print(player.name, 'you have the current best guess count')
+        with open(LOWSCORE_FILENAME, 'w') as file:
             file.write(str(player.guess_count))
+
 
 def get_player():
     player = None
@@ -124,4 +129,3 @@ if __name__ == "__main__":
         traceback.print_exc()
 
 game_over_message()
-
