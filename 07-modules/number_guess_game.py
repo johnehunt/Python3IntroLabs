@@ -48,6 +48,7 @@ def play_game():
 
         # Obtain their initial guess
         guess = player.make_a_guess()
+        player.increment_count()
         while number_to_guess != guess:
             print('Sorry wrong number')
 
