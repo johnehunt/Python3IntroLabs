@@ -16,7 +16,7 @@ class Player:
         self.__history = []
 
     def __str__(self):
-        return 'Player ' + self.name + ' guesses ' + str(self.guess_count) + ', history ' + str(self.history)
+        return 'Player ' + self.name + ' guesses, ' + str(self.guess_count) + ', history ' + str(self.history)
 
     # Defining properties for the Player
     @property
@@ -53,6 +53,7 @@ class Player:
     def make_a_guess(self):
         guess = get_user_input(GUESS_PROMPT, MIN_VALUE, MAX_VALUE)
         self.add_guess(guess)
+        self.increment_count()
         return guess
 
     # Implement the length Protocol
@@ -75,6 +76,7 @@ class ComputerPlayer(Player):
     def make_a_guess(self):
         guess = self.random_number_generator.randint(0, self.range)
         self.add_guess(guess)
+        self.increment_count()
         return guess
 
     def __str__(self):
