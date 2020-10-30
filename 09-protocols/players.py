@@ -38,8 +38,6 @@ class Player:
         return len(self.history)
 
 
-
-
 class ComputerPlayer(Player):
     """ Computer automated player """
 
