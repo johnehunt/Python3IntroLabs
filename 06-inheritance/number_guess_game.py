@@ -47,7 +47,7 @@ def get_user_input(prompt):
     return user_input_int
 
 
-class Player():
+class Player:
     """ Class to represent a player within the number guess game """
 
     def __init__(self, name):
