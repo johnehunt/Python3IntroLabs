@@ -80,7 +80,7 @@ def play_game():
             print('Well done', player.name, 'won!')
             print('You took', player.guess_count, 'goes to complete the game')
         else:
-            print("Sorry -', player.name, 'you loose")
+            print('Sorry -', player.name, 'you loose')
             print('The number you needed to guess was',
                   number_to_guess)
 
