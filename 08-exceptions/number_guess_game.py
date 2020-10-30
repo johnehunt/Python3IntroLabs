@@ -32,7 +32,7 @@ def get_player():
     if computer_plays == 'y':
         player = ComputerPlayer(MAX_VALUE)
     else:
-        name = input('Please enter your name>: ')
+        name = input('Please enter your name: ')
         print('', name, '')
         if name == '':
             raise NumberGuessGameException('Invalid Name')
