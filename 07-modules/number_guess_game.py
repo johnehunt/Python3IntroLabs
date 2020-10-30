@@ -20,13 +20,6 @@ def game_over_message():
 
 
 def get_player():
-    name = input('Please enter your name: ')
-    player = Player(name)
-    return player
-
-
-def play_game():
-    """ Defines main loop controlling game"""
     player = None
     computer_plays = get_user_yes_or_no("Do you want the computer to play? ")
     if computer_plays == 'y':
@@ -34,6 +27,12 @@ def play_game():
     else:
         name = input('Please enter your name: ')
         player = Player(name)
+    return player
+
+
+def play_game():
+    """ Defines main loop controlling game"""
+    player = get_player()
 
     keep_playing = True
     while keep_playing:
