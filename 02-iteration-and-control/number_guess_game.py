@@ -1,18 +1,21 @@
 import random
 
+# Set up some global 'constants'
 MIN_VALUE = 1
 MAX_VALUE = 10
 MAX_NUMBER_OF_GUESSES = 4
 GUESS_PROMPT = 'Please guess a number between ' + str(MIN_VALUE) + ' and ' + str(MAX_VALUE) + ': '
 
-
-print('Welcome to the number guess game')
+# Set up variables to be used in the game
 
 # Initialise the number to be guessed
 number_to_guess = random.randint(MIN_VALUE, MAX_VALUE)
 
 # Initialise the number of tries the player has made
 count_number_of_tries = 1
+
+# Start the game
+print('Welcome to the number guess game')
 
 # Obtain their initial guess
 guess = int(input(GUESS_PROMPT))
