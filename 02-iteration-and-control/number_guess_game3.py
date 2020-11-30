@@ -35,7 +35,7 @@ while not game_over:
         elif guess < number_to_guess:
             print('Sorry wrong number')
             print('Your guess was lower than the number')
-        else:
+        elif guess > number_to_guess:
             print('Sorry wrong number')
             print('Your guess was higher than the number')
 
@@ -52,7 +52,7 @@ while not game_over:
               number_to_guess)
 
     play_again = input("Do you want to play again? ")
-    if play_again.lower() == 'n':
+    if play_again.lower() == 'n' or play_again.lower() == 'no':
         game_over = True
 
 print('Game Over')
