@@ -33,7 +33,7 @@ while number_to_guess != guess:
         print('Your guess was higher than the number')
 
     # Obtain their next guess and increment number of attempts
-    guess = int(input('Please guess again: '))
+    guess = int(input(GUESS_PROMPT))
     count_number_of_tries += 1
 
 # Check to see if they did guess the correct number
