@@ -18,26 +18,28 @@ while keep_playing:
     number_to_guess = random.randint(MIN_VALUE, MAX_VALUE)
 
     # Initialise the number of tries the player has made
-    count_number_of_tries = 1
+    count_number_of_tries = 0
 
-    # Obtain their initial guess
-    guess = int(input(GUESS_PROMPT))
-    history.append(guess)
+    guess = 0
     while number_to_guess != guess:
-        print('Sorry wrong number')
+
+        # Obtain their guess
+        guess = int(input(GUESS_PROMPT))
 
         # Check to see they have not exceeded the maximum
         # number of attempts if so break out of loop otherwise
         # give the user come feedback
-        if count_number_of_tries == MAX_NUMBER_OF_GUESSES:
+        if guess == -1:
+            print('The number to guess is', number_to_guess)
+            continue
+        elif count_number_of_tries == MAX_NUMBER_OF_GUESSES:
             break
         elif guess < number_to_guess:
             print('Your guess was lower than the number')
-        else:
+        elif guess > number_to_guess:
             print('Your guess was higher than the number')
 
-        # Obtain their next guess and increment number of attempts
-        guess = int(input('Please guess again: '))
+        # Add the guess to the history and increment number of attempts
         history.append(guess)
         count_number_of_tries += 1
 
@@ -53,7 +55,7 @@ while keep_playing:
     print('Your guesses were:')
     print(history)
 
-    play_again = input('Do you want to play? (y/n) ')
+    play_again = input('Do you want to play again? (y/n) ')
     if play_again.lower() == 'n':
         keep_playing = False
 
