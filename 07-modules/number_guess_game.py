@@ -1,5 +1,6 @@
 import random
-from constants import MIN_VALUE, MAX_VALUE, MAX_NUMBER_OF_GUESSES, GUESS_PROMPT
+
+from constants import MIN_VALUE, MAX_VALUE, MAX_NUMBER_OF_GUESSES
 from utils import get_user_yes_or_no
 from players import Player, ComputerPlayer
 
