@@ -15,7 +15,7 @@ def get_user_yes_or_no(prompt):
     while invalid_input:
         user_input = input(prompt).lower()
         if user_input == 'y' or user_input == 'n':
-            return user_input.lower()
+            return user_input
         else:
             print('Input Error - Input must be "y" or "n"')
 
