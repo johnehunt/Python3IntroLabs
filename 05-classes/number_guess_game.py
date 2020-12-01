@@ -6,6 +6,35 @@ MAX_NUMBER_OF_GUESSES = 4
 GUESS_PROMPT = 'Please guess a number between ' + str(MIN_VALUE) + ' and ' + str(MAX_VALUE) + ': '
 
 
+class Player:
+    """ Class to represent a player within the number guess game """
+
+    def __init__(self, name):
+        self.name = name
+        self.guess_count = 0
+        self.history = []
+
+    def __str__(self):
+        return 'Player ' + self.name + ' guesses ' + str(self.guess_count) + ', history ' + str(self.history)
+
+    def increment_count(self):
+        self.guess_count = self.guess_count + 1
+
+    def add_guess(self, guess):
+        self.history.append(guess)
+
+    def print_history(self):
+        formatted_history = list(map(lambda guess: '\t guess ' + str(guess), self.history))
+        for guess in formatted_history:
+            print(guess)
+
+    def make_a_guess(self):
+        guess = get_user_input(GUESS_PROMPT)
+        self.add_guess(guess)
+        self.increment_count()
+        return guess
+
+
 def get_user_yes_or_no(prompt):
     """ get input from the user and check that it is y or n"""
     invalid_input = True
@@ -45,35 +74,6 @@ def get_user_input(prompt):
             else:
                 invalid_input = False
     return user_input_int
-
-
-class Player():
-    """ Class to represent a player within the number guess game """
-
-    def __init__(self, name):
-        self.name = name
-        self.guess_count = 0
-        self.history = []
-
-    def __str__(self):
-        return 'Player ' + self.name + ' guesses ' + str(self.guess_count) + ', history ' + str(self.history)
-
-    def increment_count(self):
-        self.guess_count = self.guess_count + 1
-
-    def add_guess(self, guess):
-        self.history.append(guess)
-
-    def print_history(self):
-        formatted_history = list(map(lambda guess: '\t guess ' + str(guess), self.history))
-        for guess in formatted_history:
-            print(guess)
-
-    def make_a_guess(self):
-        guess = get_user_input(GUESS_PROMPT)
-        self.add_guess(guess)
-        self.increment_count()
-        return guess
 
 
 def get_player():
