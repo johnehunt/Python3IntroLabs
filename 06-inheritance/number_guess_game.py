@@ -6,47 +6,6 @@ MAX_NUMBER_OF_GUESSES = 4
 GUESS_PROMPT = 'Please guess a number between ' + str(MIN_VALUE) + ' and ' + str(MAX_VALUE) + ': '
 
 
-def get_user_yes_or_no(prompt):
-    """ get input from the user and check that it is y or n"""
-    invalid_input = True
-    while invalid_input:
-        user_input = input(prompt).lower()
-        if user_input == 'y' or user_input == 'n':
-            return user_input.lower()
-        else:
-            print('Input Error - Input must be "y" or "n"')
-
-
-def welcome_message():
-    print('Welcome to the number guess game')
-
-
-def display_instructions():
-    response = get_user_yes_or_no('Do you want to see the instructions?: ')
-    if response == 'y':
-        print("You have to guess a number between", MIN_VALUE, "and", MAX_VALUE)
-        print("You can play as many times as you like")
-
-
-def game_over_message():
-    print('Game Over')
-
-
-def get_user_input(prompt):
-    invalid_input = True
-    while invalid_input:
-        user_input = input(prompt)
-        if not user_input.isdigit():
-            print('Input must be a positive number')
-        else:
-            user_input_int = int(user_input)
-            if user_input_int < MIN_VALUE or user_input_int > MAX_VALUE:
-                print('Error ' + GUESS_PROMPT)
-            else:
-                invalid_input = False
-    return user_input_int
-
-
 class Player:
     """ Class to represent a player within the number guess game """
 
@@ -93,6 +52,46 @@ class ComputerPlayer(Player):
     def __str__(self):
         return 'Computer' + super().__str__()
 
+
+def get_user_yes_or_no(prompt):
+    """ get input from the user and check that it is y or n"""
+    invalid_input = True
+    while invalid_input:
+        user_input = input(prompt).lower()
+        if user_input == 'y' or user_input == 'n':
+            return user_input.lower()
+        else:
+            print('Input Error - Input must be "y" or "n"')
+
+
+def welcome_message():
+    print('Welcome to the number guess game')
+
+
+def display_instructions():
+    response = get_user_yes_or_no('Do you want to see the instructions?: ')
+    if response == 'y':
+        print("You have to guess a number between", MIN_VALUE, "and", MAX_VALUE)
+        print("You can play as many times as you like")
+
+
+def game_over_message():
+    print('Game Over')
+
+
+def get_user_input(prompt):
+    invalid_input = True
+    while invalid_input:
+        user_input = input(prompt)
+        if not user_input.isdigit():
+            print('Input must be a positive number')
+        else:
+            user_input_int = int(user_input)
+            if user_input_int < MIN_VALUE or user_input_int > MAX_VALUE:
+                print('Error ' + GUESS_PROMPT)
+            else:
+                invalid_input = False
+    return user_input_int
 
 def get_player():
     player = None
