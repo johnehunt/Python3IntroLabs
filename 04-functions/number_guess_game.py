@@ -33,6 +33,7 @@ def game_over_message():
 
 
 def get_user_input(prompt):
+    user_input_int = None
     invalid_input = True
     while invalid_input:
         user_input = input(prompt)
