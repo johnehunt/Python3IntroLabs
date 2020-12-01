@@ -42,7 +42,7 @@ def get_user_input(prompt):
         else:
             user_input_int = int(user_input)
             if user_input_int < MIN_VALUE or user_input_int > MAX_VALUE:
-                print(GUESS_PROMPT)
+                print(f'Number must be in range {MIN_VALUE} and {MAX_VALUE}')
             else:
                 invalid_input = False
     return user_input_int
