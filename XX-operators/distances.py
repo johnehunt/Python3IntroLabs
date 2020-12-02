@@ -23,7 +23,7 @@ class Distance:
         return Distance(new_value)
 
     def __str__(self):
-        return 'Distance[' + str(self.value) + ']'
+        return f'Distance[{self.value}]'
 
 
 d1 = Distance(6)
@@ -34,3 +34,4 @@ print(d1 - d2)
 print(d1 / 2)
 print(d2 // 2)
 print(d2 * 2)
+print(d1 + 'John')
